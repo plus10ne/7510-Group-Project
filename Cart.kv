@@ -1,0 +1,118 @@
+<Cart>:
+    name: 'cart'
+    BoxLayout:
+        orientation: 'vertical'
+        
+        MDTopAppBar:
+            title:"Cart"
+            pos_hint:{"top":0,"center_x":0.5}
+            elevation:0
+            size_hint_x: None
+            width:"320dp"
+            size_hint_y: None
+            height:"5dp"
+            #left_action_items: [["return", lambda x: print("菜单按钮点击")]]
+        
+
+        ScrollView:
+            bar_width: dp(10)
+            scroll_type: ['bars', 'content']
+            #padding:dp(20)
+            MDBoxLayout:
+                orientation: 'vertical'
+                spacing: dp(5)
+                padding: dp(10)
+                size_hint_y: None
+                height: self.minimum_height  # 根据内容动态调整高度
+                pos_hint:{'center_x': 0.5, 'center_y': 0.45} 
+                
+                MDCard:
+                    size_hint: None, None
+                    size: dp(320), dp(120)
+                    #padding: dp(-10)
+                    #spacing: dp(-20)
+                    elevation: 1  # 控制阴影和边框效果
+                    md_bg_color: 1, 1, 1, 1  # 背景颜色
+                    border_radius: [10]  # 圆角半径
+
+                    FloatLayout:
+                        orientation: "horizontal"
+                        size_hint: None, None
+                        size: dp(320), dp(120)  # 适应总布局的大小
+
+                        CheckBox:
+                            active:False
+                            pos: dp(-145),dp(0)
+                            #on_active: app.on_checkbox_active(self, self.active)
+
+                        Image:
+                            source: "1.png"
+                            size_hint: None, None
+                            size: dp(130), dp(130)
+                            pos: dp(30), dp(-5)
+
+                        Widget:
+                            size_hint_x:None
+                            width:dp(8)
+
+                        BoxLayout:
+                            orientation:"vertical"
+                            pos: dp(170), dp(0)
+                            padding:dp(-0)
+                            spacing:dp(-13)
+                            #size_hint_y:None
+                            #height: dp(90)
+                            MDLabel:
+                                text: "Name1"
+                            MDLabel:
+                                text: "Price1"
+                            MDLabel:
+                                text: "Number1"
+                        
+                        MDFloatingActionButton:
+                            icon:"minus"
+                            md_bg_color:"red"
+                            size_hint:dp(0.05),dp(0.13)
+                            pos: dp(290),dp(50)
+                            elevation:0.2
+
+
+        MDBottomNavigation:
+            pannel_color: "blue"
+
+            MDBottomNavigationItem:
+                name: "cart"
+                text: "Cart"
+                icon: "cart"
+            
+            MDBottomNavigationItem:
+                name:"Home"
+                text: "Home"
+                icon: "home"
+
+            MDBottomNavigationItem:
+                name: "Me"
+                text: "Me"
+                icon: "account"
+
+        #BoxLayout:
+        #    orientation: 'horizontal'
+        #    spacing:10
+        #    padding: dp(20)
+        #    
+        #    MDFillRoundFlatIconButton:
+        #        icon:'cart-outline'
+        #        text: 'Cart'
+        #        on_press: root.update_cart()
+        #        
+        #    MDFillRoundFlatIconButton:
+        #        icon: 'home-outline'
+        #        text: 'Home' 
+        #        #on_press: root.Cancel_click()
+#
+        #    MDFillRoundFlatIconButton:
+        #        icon: 'account-circle-outline'
+        #        text: 'Me' 
+        #        #on_press: root.Sign_click()
+
+            
